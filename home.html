@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="jquery.js">
+</script>
+<script type="text/javascript" src="jquery-ui-1.10.4.custom.min.js">
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+var inputs = document.getElementsByTagName('input');
+for (a = 0; a < inputs.length; a++) {
+if (inputs[a].type == "checkbox") {
+var id = inputs[a].getAttribute("id");
+if (id==null){
+id=  "checkbox" +a;
+}
+inputs[a].setAttribute("id",id);
+var container = document.createElement('div');
+container.setAttribute("class", "ttr_checkbox");
+var label = document.createElement('label');
+label.setAttribute("for", id);
+$(inputs[a]).wrap(container).after(label);
+}
+}
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+var inputs = document.getElementsByTagName('input');
+for (a = 0; a < inputs.length; a++) {
+if (inputs[a].type == "radio") {
+var id = inputs[a].getAttribute("id");
+if (id==null){
+id=  "radio" +a;
+}
+inputs[a].setAttribute("id",id);
+var container = document.createElement('div');
+container.setAttribute("class", "ttr_radio");
+var label = document.createElement('label');
+label.setAttribute("for", id);
+$(inputs[a]).wrap(container).after(label);
+}
+}
+});
+</script>
+<script type="text/javascript" src="tt_slideshow.js">
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+$('#ttr_slideshow_inner').TTSlider({
+slideShowSpeed:4000,cssPrefix: 'ttr_'
+});
+});
+</script>
+<script type="text/javascript" src="bootstrap.min.js">
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+var window_height =  Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+var body_height = $(document.body).height();
+$content = $("#ttr_content_and_sidebar_container");
+if(body_height < window_height){
+differ = (window_height - body_height);
+content_height = $content.height() + differ;
+$("#ttr_content_and_sidebar_container").css("min-height", content_height+"px");
+}
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+$('#nav-expander').on('click',function(e){
+e.preventDefault();
+$('body').toggleClass('nav-expanded');
+});
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+$('ul.ttr_menu_items.nav li [data-toggle=dropdown]').on('click', function() {
+var window_width =  Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+if(window_width > 1025){
+window.location.href = jQuery(this).attr('href'); 
+}
+});
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+$('ul.ttr_vmenu_items.nav li [data-toggle=dropdown]').on('click', function() {
+var window_width =  Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+if(window_width > 1025){
+window.location.href = jQuery(this).attr('href'); 
+}
+});
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+$('.ttr_menu_items ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) { 
+var window_width =  Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+if(window_width < 1025){
+event.preventDefault();
+event.stopPropagation();
+$(this).parent().siblings().removeClass('open');
+$(this).parent().toggleClass(function() {
+if ($(this).is(".open") ) {
+window.location.href = $(this).children("[data-toggle=dropdown]").attr('href'); 
+return "";
+} else {
+return "open";
+}
+});
+}
+});
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+$('.ttr_vmenu_items ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) { 
+var window_width =  Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+if(window_width < 1025){
+event.preventDefault();
+event.stopPropagation();
+$(this).parent().siblings().removeClass('open');
+$(this).parent().toggleClass(function() {
+if ($(this).is(".open") ) {
+window.location.href = $(this).children("[data-toggle=dropdown]").attr('href'); 
+return "";
+} else {
+return "open";
+}
+});
+}
+});
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+var objects = ['iframe', 'video','object'];
+for(var i = 0 ; i < objects.length ; i++){
+if ($(objects[i]).length > 0) {
+$(objects[i]).addClass('embed-responsive-item');
+$(objects[i]).parent().addClass('embed-responsive embed-responsive-16by9');
+$(".embed-responsive-16by9").css("padding-bottom","56.25%");
+}
+}
+});
+</script>
+<script type="text/javascript">
+WebFontConfig = {
+google: { families: [ 'Capriola'] }
+};
+(function() {
+var wf = document.createElement('script');
+wf.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://ajax.googleapis.com/ajax/libs/webfont/1.0.31/webfont.js';
+wf.type = 'text/javascript';
+wf.async = 'true';
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(wf, s);
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Add the site description here" />
+<meta  name="keywords" content="First keyword, second keyword," />
+<title>
+luandd.net
+</title>
+<link rel="stylesheet"  href="bootstrap.css" type="text/css" media="screen"/>
+<link rel="stylesheet"  href="style.css" type="text/css" media="screen"/>
+<!--[if lte IE 8]>
+<link rel="stylesheet"  href="menuie.css" type="text/css" media="screen"/>
+<link rel="stylesheet"  href="vmenuie.css" type="text/css" media="screen"/>
+<![endif]-->
+<script type="text/javascript" src="prefixfree.min.js">
+</script>
+<script type="text/javascript" src="totop.js">
+</script>
+<link rel="shortcut icon"  href="favicon.ico"/>
+<!--[if IE 7]>
+<style type="text/css" media="screen">
+#ttr_vmenu_items  li.ttr_vmenu_items_parent {margin-left:-16px;font-size:0px;}
+</style>
+<![endif]-->
+<!--[if lt IE 9]>
+<script type="text/javascript" src="html5shiv.js">
+</script>
+<script type="text/javascript" src="respond.min.js">
+</script>
+<![endif]-->
+</head>
+<body class="Index">
+<a href="#" class="back-to-top"><img alt="Back to Top" src="images/gototop.png"/></a>
+<div id="ttr_page"class="container">
+<header id="ttr_header">
+<div id="ttr_header_inner">
+<div class="ttr_title_position">
+<h1 class="ttr_title_style ">
+<a href="#">
+DAO DUC LUAN - PROFILE
+</a>
+</h1>
+</div>
+<img  class="ttr_header_logo" src="logo.png">
+</img>
+</div>
+</header>
+<nav id="ttr_menu" class="navbar-default navbar">
+   <div id="ttr_menu_inner_in">
+<div class="menuforeground">
+</div>
+<div class="ttr_menushape1">
+<div class="html_content" style="font-family:Times New Roman;font-size:12px;"><br /></div>
+</div>
+<div id="navigationmenu">
+<div class="navbar-header">
+<button id="nav-expander" data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+<span class="sr-only">
+</span>
+<span class="icon-bar">
+</span>
+<span class="icon-bar">
+</span>
+<span class="icon-bar">
+</span>
+</button>
+</div>
+<div class="menu-center collapse navbar-collapse">
+<ul class="ttr_menu_items nav navbar-nav nav-justified">
+<li class="ttr_menu_items_parent dropdown active"><a href="index.html" class="ttr_menu_items_parent_link_active"><span class="menuchildicon"></span>Home
+<hr class ="horiz_separator"/></a>
+</li>
+<li class="ttr_menu_items_parent dropdown"><a href="https://www.luandd.net/MyCV/LuanDD_CV_updated.pdf" class="ttr_menu_items_parent_link"><span class="menuchildicon"></span>Curriculum Vitae
+<hr class ="horiz_separator"/></a>
+</li>
+<li class="ttr_menu_items_parent dropdown"><a href="#" class="ttr_menu_items_parent_link"><span class="menuchildicon"></span>M: luandd0410@pm.me / luandd0410@gmail.com
+<hr class ="horiz_separator"/></a>
+</li>
+<li class="ttr_menu_items_parent dropdown"><a href="#" class="ttr_menu_items_parent_link"><span class="menuchildicon"></span>P: (+84) 90 387 9937 / (+84) 397 203034</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</nav>
+<div class="ttr_banner_slideshow">
+</div>
+<div class="ttr_slideshow">
+<div id="ttr_slideshow_inner">
+<div id="Slide0" class="ttr_slide" data-slideEffect="None">
+<div class="ttr_slideshow_last">
+<a href="http://www.luandd.net" class="slideshowforeground01" data-effect="None" data-begintime="2" data-duration="1" data-easing="linear" data-slide="None">
+</a>
+<div class="ttr_slideshowshape01" data-effect="None" data-begintime="0" data-duration="2" data-easing="linear" data-slide="right">
+<div class="html_content" style="font-family:Times New Roman;font-size:12px;"><p><span style="font-family:&quot;Microsoft Tai Le&quot;;font-size:20px;color:#FFFFFF;">25+ years of experience</span></p></div>
+</div>
+<div class="ttr_slideshowshape02" data-effect="Fade" data-begintime="0" data-duration="2" data-easing="linear" data-slide="bottom">
+<div class="html_content" style="font-family:Times New Roman;font-size:12px;"><p><span style="font-family:&quot;Microsoft Tai Le&quot;;font-size:18px;color:#FFFFFF;">To seek and obtain a challenging position, which will offer me the opportunity to fully utilize my ICT expertise, in conjunction with my business experiences.</span></p></div>
+</div>
+<div class="ttr_slideshowshape03" data-effect="Fade" data-begintime="0" data-duration="2" data-easing="linear" data-slide="left">
+<div class="html_content" style="font-family:Times New Roman;font-size:12px;"><p><span style="font-family:&quot;Microsoft Tai Le&quot;;font-size:26px;color:#FFFFFF;">HERE TO HELP</span></p></div>
+</div>
+</div>
+</div>
+<div id="Slide1" class="ttr_slide" data-slideEffect="None">
+<div class="ttr_slideshow_last">
+<a href="http://www.luandd.net" class="slideshowforeground11" data-effect="None" data-begintime="2" data-duration="1" data-easing="linear" data-slide="None">
+</a>
+<div class="ttr_slideshowshape11" data-effect="Fade" data-begintime="0" data-duration="2" data-easing="linear" data-slide="top">
+<div class="html_content" style="font-family:Times New Roman;font-size:12px;"><p><span style="font-family:&quot;Microsoft Tai Le&quot;;font-size:26px;color:#0A0A0A;">PROVIDE MY BEST EFFORTS</span></p></div>
+</div>
+<div class="ttr_slideshowshape12" data-effect="Fade" data-begintime="0" data-duration="2" data-easing="linear" data-slide="left,bottom">
+<div class="html_content" style="font-family:Times New Roman;font-size:12px;"><p><span style="font-family:&quot;Microsoft Tai Le&quot;;font-size:20px;color:#050505;">Expertise &amp; Energy for vivid industries</span></p></div>
+</div>
+<div class="ttr_slideshowshape13" data-effect="Fade" data-begintime="0" data-duration="2" data-easing="linear" data-slide="right">
+<div class="html_content" style="font-family:Times New Roman;font-size:12px;"><p><span style="font-family:&quot;Microsoft Tai Le&quot;;font-size:20px;color:#030303;">Give best for vitalizing your business</span></p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="ttr_slideshow_in">
+<div class="ttr_slideshow_last">
+<div id="nav"></div>
+</div>
+</div>
+</div>
+<div class="ttr_banner_slideshow">
+</div>
+<div id="ttr_content_and_sidebar_container">
+<div id="ttr_content">
+<div id="ttr_content_margin"class="container-fluid">
+<div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+<div class="ttr_Index_html_row0 row">
+<div class="post_column col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="ttr_Index_html_column00">
+<div class="html_content" style="font-family:Times New Roman;font-size:12px;"><p><div style="float:Stretch;margin:0px 0px 0px 0px;font-family:Times New Roman;font-size:12px;"><p style="text-align:Center;font-family:Times New Roman;font-size:12px;"><img src="images/1047.jpg" style="width:50px;height:50px;font-family:Times New Roman;font-size:12px;" /></p></div><br style="font-family:Times New Roman;font-size:12px;" /></p><p style="margin:0px 0px 10px 0px;text-align:Center;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Microsoft Tai Le&quot;;font-weight:bold;font-size:14px;">Diversified Solutions</span></p><p style="margin:0px 0px 10px 0px;text-align:Justify;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Arial&quot;;font-size:14px;">Build-up the flexible solutions by using diversed types of hardware &amp; software, as well as utilizing different tools, to achieve the targets efficiently (in terms of time &amp; efforts).</span></p></div>
+</div>
+</div>
+<div class="clearfix visible-xs-block">
+</div>
+<div class="post_column col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="ttr_Index_html_column01">
+<div class="html_content" style="font-family:Times New Roman;font-size:12px;"><p><div style="float:Stretch;margin:0px 0px 0px 0px;font-family:Times New Roman;font-size:12px;"><p style="text-align:Center;font-family:Times New Roman;font-size:12px;"><img src="images/1048.jpg" style="width:50px;height:50px;font-family:Times New Roman;font-size:12px;" /></p></div><br style="font-family:Times New Roman;font-size:12px;" /></p><p style="margin:0px 0px 10px 0px;text-align:Center;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Microsoft Tai Le&quot;;font-weight:bold;font-size:14px;">Operations Automation</span><span style="font-family:&quot;Microsoft Tai Le&quot;;font-size:16px;"> </span></p><p style="margin:0px 0px 10px 0px;text-align:Justify;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Arial&quot;;font-size:14px;">Developing and deploying automated applications and systems to manage key operations processes without the need for human interventions.</span></p></div>
+</div>
+</div>
+<div class="clearfix visible-xs-block">
+</div>
+<div class="post_column col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="ttr_Index_html_column02">
+<div class="html_content" style="font-family:Times New Roman;font-size:12px;"><p><div style="float:Stretch;margin:0px 0px 0px 0px;font-family:Times New Roman;font-size:12px;"><p style="text-align:Center;font-family:Times New Roman;font-size:12px;"><img src="images/1049.jpg" style="width:50px;height:50px;font-family:Times New Roman;font-size:12px;" /></p></div><br style="font-family:Times New Roman;font-size:12px;" /></p><p style="margin:0px 0px 10px 0px;text-align:Center;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Microsoft Tai Le&quot;;font-weight:bold;font-size:14px;">Processes Optimization</span></p><p style="margin:0px 0px 10px 0px;text-align:Justify;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Arial&quot;;font-size:14px;">Proactively identifying, analyzing and improving upon existing business processes, with the goal of making them more efficient (in terms of quality, performance &amp; speed).</span></p></div>
+</div>
+</div>
+<div class="clearfix visible-xs-block">
+</div>
+<div class="post_column col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="ttr_Index_html_column03">
+<div class="html_content" style="font-family:Times New Roman;font-size:12px;"><p style="text-indent:0px;margin:0px 0px 0px 0px;font-family:Times New Roman;font-size:12px;"><div style="float:Stretch;margin:0px 0px 0px 0px;font-family:Times New Roman;font-size:12px;"><p style="text-align:Center;font-family:Times New Roman;font-size:12px;"><img src="images/1050.jpg" style="width:50px;height:50px;font-family:Times New Roman;font-size:12px;" /></p><br /><p style="margin:0px 0px 10px 0px;text-align:Center;line-height:28px;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Microsoft Tai Le&quot;;font-weight:bold;font-size:14px;">Digital Transformation</span></p><p style="margin:0px 0px 10px 0px;text-align:Justify;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Arial&quot;;font-size:14px;">Utilizing digital techonologies to create new or modify existing business (processes, culture and customer experiences) to meet fast-paced/ ever-changing business and market requirements.</span></p></div></p></div>
+</div>
+</div>
+<div class="clearfix visible-lg-block visible-sm-block visible-md-block visible-xs-block">
+</div>
+</div>
+<div class="ttr_Index_html_row1 row">
+<div class="post_column col-lg-4 col-md-6 col-sm-6 col-xs-12">
+<div class="ttr_Index_html_column10">
+<div class="html_content" style="font-family:Times New Roman;font-size:12px;"><p style="text-indent:20px;font-family:Times New Roman;font-size:12px;"><img src="images/1051.jpg" style="width:320px;height:320px;margin:0px 0px 0px 0px;font-family:Times New Roman;font-size:12px;" /></p></div>
+</div>
+</div>
+<div class="clearfix visible-xs-block">
+</div>
+<div class="post_column col-lg-1 col-md-2 col-sm-2 col-xs-5">
+<div class="ttr_Index_html_column11">
+<div class="html_content" style="font-family:Times New Roman;font-size:12px;"><p style="margin:0px 0px 10px 0px;line-height:49px;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Microsoft Tai Le&quot;;font-weight:bold;font-size:24px;color:#343434;">WHY </span><span style="font-family:&quot;Microsoft Tai Le&quot;;font-weight:bold;font-size:24px;color:#268ACD;">ME</span></p><table width="100%" style="border-width:0px 0px 0px 0px;border-color:#000000;border-style:solid;mso-element:para-border-div;font-family:Times New Roman;font-size:12px;"><tbody><tr><td style="border-width:0px 0px 0px 0px;border-color:#000000;border-style:solid;mso-element:para-border-div;font-family:Times New Roman;font-size:12px;"><p style="text-align:Center;font-family:Times New Roman;font-size:12px;"><img src="images/1052.jpg" style="width:50px;height:40px;margin:0px 0px 0px 0px;font-family:Times New Roman;font-size:12px;" /></p></td></tr><tr><td style="border-width:0px 0px 0px 0px;border-color:#000000;border-style:solid;mso-element:para-border-div;font-family:Times New Roman;font-size:12px;"><br /><br /><p style="text-align:Center;font-family:Times New Roman;font-size:12px;"><img src="images/1053.jpg" style="width:50px;height:40px;margin:0px 0px 0px 0px;font-family:Times New Roman;font-size:12px;" /></p></td></tr><tr><td style="border-width:0px 0px 0px 0px;border-color:#000000;border-style:solid;mso-element:para-border-div;font-family:Times New Roman;font-size:12px;"><br /><br /><p style="text-align:Center;font-family:Times New Roman;font-size:12px;"><img src="images/1054.jpg" style="width:35px;height:40px;margin:0px 0px 0px 0px;font-family:Times New Roman;font-size:12px;" /></p></td></tr></tbody></table><br /><p style="margin:0px 0px 0px 0px;text-align:Center;font-family:Times New Roman;font-size:12px;"><img src="images/1055.jpg" style="width:75px;height:60px;margin:0px 0px 0px 0px;font-family:Times New Roman;font-size:12px;" /></p></div>
+</div>
+</div>
+<div class="post_column col-lg-7 col-md-4 col-sm-4 col-xs-7">
+<div class="ttr_Index_html_column12">
+<div class="html_content" style="font-family:Times New Roman;font-size:12px;"><p style="line-height:20.88px;font-family:Times New Roman;font-size:12px;"><br style="font-family:&quot;Arial&quot;;font-size:12px;" /></p><p style="margin:2px 0px 0px 8px;line-height:20.88px;font-family:Times New Roman;font-size:12px;"><br style="font-family:&quot;Arial&quot;;font-size:24px;" /></p><table width="650" align="left" vAlign="top" style="border-width:0px 0px 0px 0px;border-color:#000000;border-style:solid;mso-element:para-border-div;font-family:Times New Roman;font-size:12px;"><tbody><tr><td width="650" align="left" vAlign="top" style="border-width:0px 0px 0px 0px;border-color:#000000;border-style:solid;mso-element:para-border-div;font-family:Times New Roman;font-size:12px;"><p><span style="font-family:&quot;Arial&quot;;font-size:14px;">Strong/ Experienced Leadership </span></p></td></tr><tr><td width="650" align="left" vAlign="top" style="border-width:0px 0px 0px 0px;border-color:#000000;border-style:solid;mso-element:para-border-div;font-family:Times New Roman;font-size:12px;"><p><br style="font-family:&quot;Arial&quot;;font-size:14px;" /></p></td></tr><tr><td width="650" align="left" vAlign="top" style="border-width:0px 0px 0px 0px;border-color:#000000;border-style:solid;mso-element:para-border-div;font-family:Times New Roman;font-size:12px;"><p><br style="font-family:&quot;Arial&quot;;font-size:14px;" /></p></td></tr><tr><td width="650" align="left" vAlign="top" style="border-width:0px 0px 0px 0px;border-color:#000000;border-style:solid;mso-element:para-border-div;font-family:Times New Roman;font-size:12px;"><p><br style="font-family:&quot;Arial&quot;;font-size:14px;" /></p></td></tr><tr><td width="650" align="left" vAlign="top" style="border-width:0px 0px 0px 0px;border-color:#000000;border-style:solid;mso-element:para-border-div;font-family:Times New Roman;font-size:12px;"><p><span style="font-family:&quot;Arial&quot;;font-size:14px;">Creative &amp; Inspirational</span></p></td></tr><tr><td width="650" align="left" vAlign="top" style="border-width:0px 0px 0px 0px;border-color:#000000;border-style:solid;mso-element:para-border-div;font-family:Times New Roman;font-size:12px;"><p><br style="font-family:&quot;Arial&quot;;font-size:14px;" /></p></td></tr><tr><td width="650" align="left" vAlign="top" style="border-width:0px 0px 0px 0px;border-color:#000000;border-style:solid;mso-element:para-border-div;font-family:Times New Roman;font-size:12px;"><p><br style="font-family:&quot;Arial&quot;;font-size:14px;" /></p></td></tr><tr><td width="650" align="left" vAlign="top" style="border-width:0px 0px 0px 0px;border-color:#000000;border-style:solid;mso-element:para-border-div;font-family:Times New Roman;font-size:12px;"><p><br style="font-family:&quot;Arial&quot;;font-size:14px;" /></p></td></tr><tr><td width="650" align="left" vAlign="top" style="border-width:0px 0px 0px 0px;border-color:#000000;border-style:solid;mso-element:para-border-div;font-family:Times New Roman;font-size:12px;"><p><span style="font-family:&quot;Arial&quot;;font-size:14px;">Adaptability &amp; Flexibility</span></p><p><span style="font-family:&quot;Arial&quot;;font-size:14px;">Resiliency</span></p></td></tr><tr><td width="650" align="left" vAlign="top" style="border-width:0px 0px 0px 0px;border-color:#000000;border-style:solid;mso-element:para-border-div;font-family:Times New Roman;font-size:12px;"><p><br style="font-family:&quot;Arial&quot;;font-size:14px;" /></p></td></tr><tr><td width="650" align="left" vAlign="top" style="border-width:0px 0px 0px 0px;border-color:#000000;border-style:solid;mso-element:para-border-div;font-family:Times New Roman;font-size:12px;"><p><br style="font-family:&quot;Arial&quot;;font-size:14px;" /></p></td></tr><tr><td width="650" align="left" vAlign="top" style="border-width:0px 0px 0px 0px;border-color:#000000;border-style:solid;mso-element:para-border-div;font-family:Times New Roman;font-size:12px;"><p><br style="font-family:&quot;Arial&quot;;font-size:14px;" /></p></td></tr><tr><td width="650" align="left" vAlign="top" style="border-width:0px 0px 0px 0px;border-color:#000000;border-style:solid;mso-element:para-border-div;font-family:Times New Roman;font-size:12px;"><p><span style="font-family:&quot;Arial&quot;;font-size:14px;">Target Oriented </span></p></td></tr><tr><td width="650" align="left" vAlign="top" style="border-width:0px 0px 0px 0px;border-color:#000000;border-style:solid;mso-element:para-border-div;font-family:Times New Roman;font-size:12px;"><p><span style="font-family:&quot;Arial&quot;;font-size:14px;">Problem-solving Minded</span></p></td></tr><tr><td width="650" align="left" vAlign="top" style="border-width:0px 0px 0px 0px;border-color:#000000;border-style:solid;mso-element:para-border-div;font-family:Times New Roman;font-size:12px;"><p><br style="font-family:&quot;Arial&quot;;font-size:14px;" /></p></td></tr><tr><td width="650" align="left" vAlign="top" style="border-width:0px 0px 0px 0px;border-color:#000000;border-style:solid;mso-element:para-border-div;font-family:Times New Roman;font-size:12px;"><br /></td></tr></tbody></table><p style="margin:2px 0px 0px 8px;line-height:20.88px;font-family:Times New Roman;font-size:12px;"><br style="font-family:&quot;Arial&quot;;font-size:24px;" /></p><p style="margin:2px 0px 0px 8px;line-height:20.88px;font-family:Times New Roman;font-size:12px;"><br style="font-family:&quot;Arial&quot;;font-size:24px;" /></p></div>
+</div>
+</div>
+<div class="clearfix visible-lg-block visible-sm-block visible-md-block visible-xs-block">
+</div>
+</div>
+<div class="ttr_Index_html_row2 row">
+<div class="post_column col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<div class="ttr_Index_html_column20">
+<div class="html_content" style="font-family:Times New Roman;font-size:12px;"><p style="text-indent:20px;text-align:Center;line-height:37px;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Arial&quot;;font-weight:bold;font-size:20px;color:#FFFFFF;">A DEDICATED STAFF, WHO WOULD CONTINUOSLY </span></p><p style="text-indent:20px;text-align:Center;line-height:37px;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Arial&quot;;font-weight:bold;font-size:20px;color:#FFFFFF;">SEEK FOR NEW OPPORTUNITIES FOR YOUR COMPANY SUCCESS.</span></p></div>
+</div>
+</div>
+<div class="clearfix visible-lg-block visible-sm-block visible-md-block visible-xs-block">
+</div>
+</div>
+<div class="ttr_Index_html_row3 row">
+<div class="post_column col-lg-12 col-md-5 col-sm-5 col-xs-12">
+<div class="ttr_Index_html_column30">
+<div class="html_content" style="font-family:Times New Roman;font-size:12px;"><p><span style="font-family:&quot;Arial&quot;;font-weight:bold;font-size:20px;">BRIEF WORKING HISTORY</span></p></div>
+</div>
+</div>
+<div class="clearfix visible-lg-block visible-xs-block">
+</div>
+</div>
+<div class="ttr_Index_html_row4 row">
+<div class="post_column col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<div class="ttr_Index_html_column40">
+<div class="html_content" style="font-family:Times New Roman;font-size:12px;"><p style="text-align:Justify;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Microsoft Tai Le&quot;;font-size:14px;color:#000075;">After graduated from Le Hong Phong high-school (for gifted students) in 1992, and spent 5 years (1992-1997) studying in Polytechnic University of HCMC, I got the Bachelor's Degree (Engineer of Electronics-Telecommunications). The time in the university had strengthened my love with computers, that started since I was in the high-school.</span></p><p style="text-align:Justify;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Microsoft Tai Le&quot;;font-size:14px;color:#000075;">I took the first step in my career differently from my classmates at that time, by starting to work (as a shipping-agent) in Falcon Shipping company - following my family tradition.</span></p><p style="text-align:Justify;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Microsoft Tai Le&quot;;font-size:14px;color:#000075;">But my love with computers &amp; their applications in business was still unchanged... until 9/2000, when I got the chance to join AIA Vietnam, as a network administrator.</span></p><p style="text-align:Justify;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Microsoft Tai Le&quot;;font-size:14px;color:#000075;">Then the long journey since 9/2000 has shaped my working career of 20+ years with ICT (Information &amp; Communications Technology) as below.</span></p><p style="text-align:Justify;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Microsoft Tai Le&quot;;font-size:14px;color:#000075;">For more details, see my </span><a HREF="http://www.luandd.net/MyCV/LuanDD_CV_updated.pdf" style="color:#0000FF;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Microsoft Tai Le&quot;;font-size:14px;color:#000075;text-decoration:underline">Curriculum Vitae</span></a></p></div>
+</div>
+</div>
+<div class="clearfix visible-lg-block visible-sm-block visible-md-block visible-xs-block">
+</div>
+</div>
+<div class="ttr_Index_html_row5 row">
+<div class="post_column col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="ttr_Index_html_column50">
+<div class="html_content" style="font-family:Times New Roman;font-size:12px;"><p style="margin:20px 0px 0px 0px;text-align:Center;font-family:Times New Roman;font-size:12px;"><img src="images/1056.jpg" style="width:160px;height:40px;margin:0px 0px 0px 0px;font-family:Times New Roman;font-size:12px;" /></p><p style="text-indent:0px;margin:0px 0px 0px 0px;text-align:Center;font-family:Times New Roman;font-size:12px;"><br style="font-family:&quot;Microsoft Tai Le&quot;;font-size:16px;color:#222222;" /></p><p style="text-indent:0px;margin:0px 0px 0px 0px;text-align:Center;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Microsoft Tai Le&quot;;font-weight:bold;font-size:16px;color:#020202;">HD Saison Finance VN </span></p><p style="text-indent:0px;margin:0px 0px 0px 0px;text-align:Center;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Microsoft Tai Le&quot;;font-weight:bold;font-size:16px;color:#020202;">(11/2009 - 4/2022)</span></p><p style="margin:10px 0px 0px 0px;text-align:Justify;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Microsoft Tai Le&quot;;font-size:14px;color:#000075;">Being </span><span style="font-family:&quot;Microsoft Tai Le&quot;;font-weight:bold;font-size:14px;color:#000075;">IT Director</span><span style="font-family:&quot;Microsoft Tai Le&quot;;font-size:14px;color:#000075;">, I have built the team from a small group of 7 staffs (mainly Helpdesk) to a team of 40+ ones (covering all activities - being Infrastructure &amp; Helpdesk, Application Support, Project &amp; In-house Development, and Security), and support well the business, who have grown from a start-up into 1 of the top 3 consumer finance companies (with 10+ millions customers). </span></p></div>
+</div>
+</div>
+<div class="clearfix visible-xs-block">
+</div>
+<div class="post_column col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="ttr_Index_html_column51">
+<div class="html_content" style="font-family:Times New Roman;font-size:12px;"><p style="margin:20px 0px 0px 0px;text-align:Center;font-family:Times New Roman;font-size:12px;"><img src="images/1057.jpg" style="width:120px;height:40px;margin:0px 0px 0px 0px;font-family:Times New Roman;font-size:12px;" /></p><p style="text-indent:0px;margin:0px 0px 0px 0px;text-align:Center;font-family:Times New Roman;font-size:12px;"><br style="font-family:&quot;Microsoft Tai Le&quot;;font-size:16px;" /></p><p style="text-indent:0px;margin:0px 0px 0px 0px;text-align:Center;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Microsoft Tai Le&quot;;font-weight:bold;font-size:16px;color:#0A0A0A;">Coca-Cola Beverages VN</span></p><p style="text-indent:0px;margin:0px 0px 0px 0px;text-align:Center;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Microsoft Tai Le&quot;;font-weight:bold;font-size:16px;color:#0A0A0A;">(6/2007 - 10/2009)</span></p><p style="margin:10px 0px 0px 0px;text-align:Justify;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Microsoft Tai Le&quot;;font-size:14px;color:#000075;">In the position of </span><span style="font-family:&quot;Microsoft Tai Le&quot;;font-weight:bold;font-size:14px;color:#000075;">IS (Information Services) Manager</span><span style="font-family:&quot;Microsoft Tai Le&quot;;font-size:14px;color:#000075;">, I have managed the team (of 5 staffs) to join closely with Coca-Cola Sabco Group IT, and other local departments, to deploy successfully the project of SAP ERP (Enterprise Resources Planning), and also support well for 1,500+ users in 3 sites (Hanoi, Da Nang &amp; HCMC) </span></p></div>
+</div>
+</div>
+<div class="clearfix visible-xs-block">
+</div>
+<div class="post_column col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="ttr_Index_html_column52">
+<div class="html_content" style="font-family:Times New Roman;font-size:12px;"><p style="margin:20px 0px 0px 0px;text-align:Center;font-family:Times New Roman;font-size:12px;"><img src="images/1058.jpg" style="width:100px;height:45px;margin:0px 0px 0px 0px;font-family:Times New Roman;font-size:12px;" /></p><p style="text-indent:0px;margin:0px 0px 0px 0px;text-align:Center;font-family:Times New Roman;font-size:12px;"><br style="font-family:&quot;Microsoft Tai Le&quot;;font-size:16px;" /></p><p style="text-indent:0px;margin:0px 0px 0px 0px;text-align:Center;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Microsoft Tai Le&quot;;font-weight:bold;font-size:16px;color:#0A0A0A;">NETiKA IT Services </span></p><p style="text-indent:0px;margin:0px 0px 0px 0px;text-align:Center;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Microsoft Tai Le&quot;;font-weight:bold;font-size:16px;color:#0A0A0A;">(7/2004 - 6/2007)</span></p><p style="margin:10px 0px 0px 0px;text-align:Justify;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Microsoft Tai Le&quot;;font-size:14px;color:#000075;">As the </span><span style="font-family:&quot;Microsoft Tai Le&quot;;font-weight:bold;font-size:14px;color:#000075;">Manager of Customer Services</span><span style="font-family:&quot;Microsoft Tai Le&quot;;font-size:14px;color:#000075;"> team (of 9 staffs), I have managed the team to provide full-range out-sourced IT services (consulting, system integration, network administration, training...) to nearly 30 customer companies (i.e. Bayer-Lanxess, Lafarge Cement, Sanofi-Aventis, Saigon Shipyard, New Viet Diary, Cowan Asia,...) </span></p></div>
+</div>
+</div>
+<div class="clearfix visible-xs-block">
+</div>
+<div class="post_column col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="ttr_Index_html_column53">
+<div class="html_content" style="font-family:Times New Roman;font-size:12px;"><p style="margin:20px 0px 0px 0px;text-align:Center;font-family:Times New Roman;font-size:12px;"><img src="images/1059.jpg" style="width:140px;height:50px;margin:0px 0px 0px 0px;font-family:Times New Roman;font-size:12px;" /></p><p style="text-indent:0px;margin:0px 0px 0px 0px;text-align:Center;font-family:Times New Roman;font-size:12px;"><br style="font-family:&quot;Microsoft Tai Le&quot;;font-size:16px;" /></p><p style="text-indent:0px;margin:0px 0px 0px 0px;text-align:Center;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Microsoft Tai Le&quot;;font-weight:bold;font-size:16px;color:#0A0A0A;">AIA Vietnam </span></p><p style="text-indent:0px;margin:0px 0px 0px 0px;text-align:Center;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Microsoft Tai Le&quot;;font-weight:bold;font-size:16px;color:#0A0A0A;">(9/2000 - 7/2004)</span><span style="font-family:&quot;Microsoft Tai Le&quot;;font-size:16px;color:#0A0A0A;"> </span></p><p style="margin:10px 0px 0px 0px;text-align:Justify;font-family:Times New Roman;font-size:12px;"><span style="font-family:&quot;Microsoft Tai Le&quot;;font-size:14px;color:#000075;">Being a </span><span style="font-family:&quot;Microsoft Tai Le&quot;;font-weight:bold;font-size:14px;color:#000075;">Senior Network Administrator</span><span style="font-family:&quot;Microsoft Tai Le&quot;;font-size:14px;color:#000075;">, I have contributed much to the quick setup &amp; expansion of AIA offices, from only 1 office in HCMC, to 3 offices in HCMC and 4 offices in Mekong Delta region (My Tho, Can Tho, Long Xuyen,&nbsp;&nbsp;Ca Mau).</span></p></div>
+</div>
+</div>
+<div class="clearfix visible-lg-block visible-sm-block visible-md-block visible-xs-block">
+</div>
+</div>
+<div style="height:0px;width:0px;overflow:hidden;-webkit-margin-top-collapse: separate;"></div>
+</div>
+</div>
+<div style="clear:both">
+</div>
+</div>
+<div style="height:0px;width:0px;overflow:hidden;"></div>
+<footer id="ttr_footer">
+<div class="ttr_footer_bottom_footer">
+<div class="ttr_footer_bottom_footer_inner">
+<div id="ttr_footer_designed_by_links">
+<a href="http://luandd.net">
+Website
+</a>
+<span id="ttr_footer_designed_by">
+Designed 2022
+</span>
+</div>
+<div class="ttr_footer_rss">
+</div>
+<a href=""class="ttr_footer_facebook">
+</a>
+<a href=""class="ttr_footer_linkedin">
+</a>
+<a href=""class="ttr_footer_twitter">
+</a>
+<a href=""class="ttr_footer_googleplus">
+</a>
+</div>
+</div>
+</footer>
+<div style="height:0px;width:0px;overflow:hidden;-webkit-margin-bottom-collapse: separate;"></div>
+</div>
+</body>
+</html>
